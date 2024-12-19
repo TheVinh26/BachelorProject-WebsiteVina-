@@ -1,0 +1,33 @@
+<div class="container-product-moderator">
+  <div class="header">
+    <span class="header-text">
+      <span></span>
+      Danh Sách Sản Phẩm</span
+    >
+  </div>
+
+  <div class="header-action">
+    <div class="btn-add-product btn" (click)="handleAddProduct()">
+      <i class="fa-solid fa-plus"></i>
+      Thêm sản phẩm
+    </div>
+    <div class="btn-search">
+      <input type="text" [(ngModel)]="searchText" name="search" id="search" placeholder="Nhập từ khóa..." />
+      <button class="search" (click)="onSearch()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-pa">
+    <app-view-products [searchText]="searchText" [key]="uniqueKey"></app-view-products>
+  </div>
+</div>
+<div
+  class="add-product"
+  [ngClass]="{ hiden: !isShowAddProduct && flag, show: isShowAddProduct }"
+>
+  <div class="content-add-product">
+    <app-add-product (isClose)="handleClose($event)"></app-add-product>
+  </div>
+</div>

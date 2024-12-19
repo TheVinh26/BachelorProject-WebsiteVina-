@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="header">
+    <span class="header-text">
+      <span></span>
+      Danh Sách Loại Sản Phẩm Phụ</span
+    >
+  </div>
+
+  <div class="header-action">
+    <div class="btn-add-product btn" (click)="handleAddProduct()">
+      <i class="fa-solid fa-plus"></i>
+      Thêm loại sản phẩm phụ
+    </div>
+    <div class="btn-search">
+      <input type="text" [(ngModel)]="searchText" name="search" id="search" />
+      <button class="search" (click)="onSearch()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content-body">
+      <div
+        class="content-mini"
+        *ngFor="let item of subCategorys"
+        (click)="changeSubCateSelect(item)"
+      >
+        <!-- <i class="fa-solid fa-users-viewfinder"></i> -->
+        <i class="fa-solid fa-tags"></i>
+        <div>
+          <span>{{ item.subCategoryName }}</span>
+          <!-- <span>Nhân viên: {{item.sumEmployee}}</span> -->
+        </div>
+      </div>
+    </div>
+    <div class="content-footer">
+      <span>Trang {{ pageCurrent }} / {{ totalPage }}</span>
+
+      <div class="f-content page">
+        <button
+          [ngClass]="{ 'no-active': pageCurrent === 1 }"
+          (click)="handlePageClick(-1)"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="btn-page">{{ pageCurrent }}</button>
+        <button
+          [ngClass]="{ 'no-active': pageCurrent === totalPage }"
+          (click)="handlePageClick(1)"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="add-cate"
+  *ngIf="flag"
+  [ngClass]="{ hiden: !isShowAddSubCate && flag, show: isShowAddSubCate }"
+>
+  <div class="content-add-cate">
+    <!-- <app-add-cate (isClose)="handleClose($event)"></app-add-cate> -->
+    <app-add-sub-cate (isClose)="handleClose($event)"></app-add-sub-cate>
+  </div>
+</div>
+<div
+  class="cate-detail"
+  *ngIf="flagDetail"
+  [ngClass]="{ hiden: !isShowDetail && flagDetail, show: isShowDetail }"
+>
+  <!-- <app-category-detail (isClose)="handleClose($event)" [ca]></app-category-detail> -->
+   <app-sub-category-detail (isClose)="handleClose($event)" [subCate]="selectSubCate"></app-sub-category-detail>
+</div>

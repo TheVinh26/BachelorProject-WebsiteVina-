@@ -1,0 +1,125 @@
+<div class="content-pa">
+  <span class="error" *ngIf="isError">Hiện chưa tồn tại khách hàng...! </span>
+  <div class="content">
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 17%">Tên đăng nhập</th>
+          <th style="width: 30%">Họ và tên</th>
+          <th style="width: 13%">Giới tính</th>
+          <th style="width: 17%">Nhân viên</th>
+          <th style="width: 17%">Phòng ban</th>
+          <th style="width: 6%">Chức năng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of customers; let i = index">
+          <td class="td-name">{{ item.accountName }}</td>
+          <td class="td-centered">
+            <input
+              type="text"
+              name="fname"
+              [(ngModel)]="item.fullName"
+              (ngModelChange)="onModelChange(item)"
+              [ngClass]="{ 'text-error': !item.fullName }"
+              id="fname"
+              placeholder="Chưa xác định..."
+              class="input-fullname"
+            />
+          </td>
+          <td class="td-centered">
+            <select
+              name="gender"
+              id="gender"
+              [(ngModel)]="item.gender"
+              (ngModelChange)="onModelChange(item)"
+              [ngClass]="{ 'text-error': item.gender === null }"
+            >
+              <option [value]="null" disabled selected>Chưa xác định</option>
+              <option *ngFor="let gender of genders" [value]="gender.id">
+                {{ gender.name }}
+              </option>
+            </select>
+          </td>
+          <td class="td-centered">
+            <select
+              name="employeeType"
+              id="employeeType"
+              [(ngModel)]="item.employeeTypeId"
+              (ngModelChange)="onModelChange(item)"
+            >
+              <option
+                *ngFor="let employeeType of employeeTypes"
+                [value]="employeeType.id"
+              >
+                {{ employeeType.name }}
+              </option>
+            </select>
+          </td>
+          <td class="td-centered">
+            <select
+              name="department"
+              id="department"
+              [(ngModel)]="item.departmentId"
+              [ngClass]="{'text-error': item.departmentId === 7}"
+              (ngModelChange)="onModelChange(item)"
+            >
+              <option
+                *ngFor="let department of departments"
+                [value]="department.departmentId"
+              >
+                {{ department.departmentName }}
+              </option>
+            </select>
+          </td>
+          <td class="td-operation">
+            <button class="btn-del" (click)="onShowDelete(item.accountName)">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="f-content">
+    <span>Trang {{ pageCurrent }} / {{ totalPage }}</span>
+
+    <div class="f-content page">
+      <button
+        [ngClass]="{ 'no-active': pageCurrent === 1 }"
+        (click)="handlePageClick(-1)"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="btn-page">{{ pageCurrent }}</button>
+      <button
+        [ngClass]="{ 'no-active': pageCurrent === totalPage }"
+        (click)="handlePageClick(1)"
+      >
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="delete-product"
+    [ngClass]="{
+      'show-delete': isShowDelete && flagDelete,
+      'hide-delete': !isShowDelete && flagDelete
+    }"
+  >
+    <p>Xác nhận xóa nhân viên: {{ accountDelete }}</p>
+    <button (click)="onHidenDelete()">Đóng</button>
+    <button class="btn-del" (click)="handleDeleteEmployee(accountDelete)">
+      Xóa
+    </button>
+  </div>
+
+  <div class="notification">
+    <app-notification
+      [data]="dataNotification"
+      [trigger]="trigger"
+    ></app-notification>
+  </div>
+</div>

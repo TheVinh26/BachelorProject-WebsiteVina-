@@ -1,0 +1,20 @@
+<div
+  class="wapper"
+  (click)="sendData(data?.productName)"
+>
+  <img
+    [src]="
+      data?.image
+        ? '/assets/Products/' + data?.image
+        : '/assets/Products/anh1.jpg'
+    "
+    [width]="250"
+    [height]="250"
+    priority=""
+    alt="Product Image"
+  />
+  <h1 class="name-product">{{ data?.productName }}</h1>
+  <p class="price-product">
+    {{ data?.price ?? 0 | customCurrency }}
+  </p>
+</div>

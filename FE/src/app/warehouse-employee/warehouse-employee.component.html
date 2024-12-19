@@ -1,0 +1,24 @@
+<div class="bg-gray-100">
+    <!-- Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <h4 class="sidebar-title">Nhân Viên Quản Lý</h4>
+        <nav class="sidebar-nav">
+          <a (click)="click_warehouse_managerment()" class="sidebar-item">Quản Lý Kho</a>
+          <a class="sidebar-item" (click)="click_in_warehouse()">Nhập Kho</a>
+          <a class="sidebar-item" (click)="click_out_warehouse()">Xuất Kho</a>
+          <a class="sidebar-item" (click)="click_products_expriry()">Theo Dõi Sản Phẩm Trong Kho</a>
+          <a class="sidebar-item" (click)="click_product_warehouse()">Vị Trí Sản Phẩm</a>
+          <a class="sidebar-item"></a>
+          <a class="sidebar-item" (click)="logOutHandler()">Đăng Xuất</a>
+        </nav>
+      </div>
+  
+      <!-- Main Content -->
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,37 @@
+ Hiếu:
+ - Đăng nhập, đăng xuất, đổi mật khẩu ✓
+ - Khách hàng:
+	+ Tra cứu sản phẩm, Loại sản phẩm, ✓
+	+ Đặt hàng, hủy hàng ✓
+ - Quản lý danh mục:
+	- Loại hàng, ✓
+	- Loại hàng Phụ, ✓
+	- Mặt hàng, ✓
+	- Khách hàng, ✓
+	- Nhà Sản xuất, ✓
+	- Nhân viên, ✓
+	- phòng ban ✓
+ - Thiết kế, cài đặt cơ sở dữ liệu.  ✓
+
+Vinh:
+ - Quản lý kho:
+		+ Nhập kho,  ✓
+		+ Xuất kho  ✓
+		+ Cảnh báo sản phẩm sắp hết hạn sử dụng,  ✓
+		+ quản lý vị trí lưu trữ sản phẩm trên ngăn kệ ✓
+ - Khảo sát, phân tích, thiết kế hệ thống. ✓
+ - Chức năng chatbox giao tiếp với khách hàng.  ✓ (Hiếu)
+ - Nhân viên: 
+      + Xử lý đơn hàng ✓ (Hiếu)
+Thịnh:
+ - Quản trị người dùng ✓
+ - thanh toán online ✓
+ - Nhân viên giao hàng: (Hiếu)
+ - Thống kê số lượng bán theo ngày, tuần của từng loại
+mặt hàng ✓
+ - Thống kê loại khách hàng tiêu thụ  ✓
+ - Thống kê số lượng khách hàng mới/cũ theo từng năm. ✓
+ - Khảo sát, phân tích, thiết kế hệ thống. ✓
+
+
+
