@@ -1,0 +1,33 @@
+# Ignore build files
+/bin/
+/obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# Ignore IDE files
+/.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore publish output
+/wwwroot/
+/publish/
+/dist/
+
+BE/.vs/
+
+# Ignore Visual Studio files
+.vs/
+
+# Ignore build outputs
+/bin/
+/obj/
+
+# Ignore Visual Studio files
+/.vs/
+*.suo
+*.user
